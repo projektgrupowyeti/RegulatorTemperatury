@@ -1,11 +1,9 @@
 <p style="line-height: 60px; font-size: 30px;  font-family: times;">
-    Update 2
+    Update 3
     <button type="button" id="btSvc1">Service 1 - 31F45C45-8E0D-4C88-94F7-718A38048536</button>
-    <button type="button" id="btSvc2">Service 2 (Xiaomi Heart Rate)</button>
 
 <script>
     var buttonSvc1 = document.getElementById("btSvc1");
-    var buttonSvc2 = document.getElementById("btSvc2");
     
     console.log("Found button.\n");
     
@@ -13,7 +11,7 @@
         console.log("Button clicked.\n");
         navigator.bluetooth.requestDevice({ 
             filters: [{
-                services: ['31F45C45-8E0D-4C88-94F7-718A38048536'] 
+                services: ['31F45C45-8E0D-4C88-94F7-718A38048536', 'battery_service'] 
             }] 
             })
             .then(device => {
@@ -21,7 +19,6 @@
                 device.gatt.connect();
             })
             .then(server => {
-                // Getting Battery Service...
                 console.log("Getting Battery Service.\n");
                 return server.getPrimaryService('31F45C45-8E0D-4C88-94F7-718A38048536');
             })
@@ -37,32 +34,7 @@
                 console.log('Battery percentage is ' + value.getUint8(0));
             })
             .catch(error => { console.log(error); }
-        );
-    });
-    
-        buttonSvc2.addEventListener('click', function(event) {
-        console.log("Button clicked.\n");
-        navigator.bluetooth.requestDevice({ filters: [{ services: [0x0021] }] })
-            .then(device => {
-                console.log(device.name);
-                device.gatt.connect();
-            })
-            .then(server => {
-                // Getting Battery Service...
-                console.log("Getting Xiaomi Heart Rate Service.\n");
-                return server.getPrimaryService('0x0021');
-            })
-            .then(service => {
-                return service.getCharacteristic('0x0024');
-            })
-            .then(characteristic => {
-                return characteristic.readValue();
-            })
-            .then(value => {
-                console.log('Read value: ' + value.getUint8(0));
-            })
-            .catch(error => { console.log(error); }
-        );
+            );
     });
     
 </script>

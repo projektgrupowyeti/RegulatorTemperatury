@@ -10,33 +10,19 @@
     buttonSvc1.addEventListener('click', function(event) {
         console.log("Button clicked.\n");
         navigator.bluetooth.requestDevice({ 
+            console.log("Filters\n");
             //'31F45C45-8E0D-4C88-94F7-718A38048536',
             filters: [{
-                services: ['battery_service'] 
+                services: ['31F45C45-8E0D-4C88-94F7-718A38048536', '0000ff0c-0000-1000-8000-00805f9b34fb'] 
             }] 
             })
             .then(device => {
                 console.log(device.name);
                 device.gatt.connect();
             })
-            .then(server => {
-                console.log("Getting Battery Service.\n");
-                return server.getPrimaryService('battery_service');
-            })
-            .then(service => {
-                // Getting Battery Level Characteristic...
-            //return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360');
-                return service.getCharacteristic('battery_level');
-            })
-            .then(characteristic => {
-                // Reading Battery Level...
-                return characteristic.readValue();
-            })
-            .then(value => {
-                console.log('Battery percentage is ' + value.getUint8(0));
-            })
-            .catch(error => { console.log(error); }
-            );
+            .catch(error => { 
+                console.log(error); 
+            });
     });
     
 </script>

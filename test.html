@@ -10,14 +10,26 @@
     buttonSvc1.addEventListener('click', function(event) {
         console.log("Button clicked.\n");
         navigator.bluetooth.requestDevice({
-            //filters: [{
                 acceptAllDevices: true,
-                optionalServices: ['31f45c45-8e0d-4c88-94f7-718a38048536']
-            //}] 
+                optionalServices: ['31f45c45-8e0d-4c88-94f7-718a38048536'] 
             })
             .then(device => {
                 console.log(device.name);
                 device.gatt.connect();
+            })
+            .then(server => {
+              return server.getPrimaryService('31f45c45-8e0d-4c88-94f7-718a38048536');
+            })
+            .then(service => {
+              return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360');
+            })
+            .then(characteristic => {
+              return characteristic.readValue();
+            })
+            .then(value => {
+                console.log(value);
+                console.log('Value 0 is ' + value.getUint8(0));
+                console.log('Value 1 is ' + value.getUint8(1));
             })
             .catch(error => { 
                 console.log(error); 

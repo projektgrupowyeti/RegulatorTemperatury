@@ -34,6 +34,14 @@
                 console.log('Value I is ' + value.getUint8(3));
                 console.log('Value S is ' + value.getUint8(4));
             })
+            .then(characteristic => {
+                var s = new Set([100, 5, 5, 100]);
+                var arr = Uint8Array.from(s);
+                return characteristic.writeValue(arr);
+            })
+            .then(_ => {
+                console.log('Value is written to device');
+            })
             .catch(error => { 
                 console.log(error); 
             });

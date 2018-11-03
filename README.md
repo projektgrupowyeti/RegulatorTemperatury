@@ -4,7 +4,7 @@ You can use the [editor on GitHub](https://github.com/LedWork/ProjektGrupowy/edi
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-Go to [WebBluetooth test](https://github.com/LedWork/ProjektGrupowy/edit/master/test.html)
+Go to [WebBluetooth test](https://ledwork.github.io/ProjektGrupowy/test.html)
 
 ### Markdown
 

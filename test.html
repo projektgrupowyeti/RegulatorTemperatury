@@ -10,10 +10,10 @@
     buttonSvc1.addEventListener('click', function(event) {
         console.log("Button clicked.\n");
         navigator.bluetooth.requestDevice({
-            filters: [{
+            //filters: [{
                 acceptAllDevices: true,
                 optionalServices: ['31f45c45-8e0d-4c88-94f7-718a38048536']
-            }] 
+            //}] 
             })
             .then(device => {
                 console.log(device.name);

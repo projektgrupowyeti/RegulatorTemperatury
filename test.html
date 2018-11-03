@@ -1,5 +1,5 @@
 <p style="line-height: 60px; font-size: 30px;  font-family: times;">
-    Update 4
+    Update 5
     <button type="button" id="btSvc1">Service 1</button>
 
 <script>
@@ -9,9 +9,7 @@
     
     buttonSvc1.addEventListener('click', function(event) {
         console.log("Button clicked.\n");
-        navigator.bluetooth.requestDevice({ 
-            console.log("Filters\n");
-            //'31F45C45-8E0D-4C88-94F7-718A38048536',
+        navigator.bluetooth.requestDevice({
             filters: [{
                 services: ['31F45C45-8E0D-4C88-94F7-718A38048536', '0000ff0c-0000-1000-8000-00805f9b34fb'] 
             }] 

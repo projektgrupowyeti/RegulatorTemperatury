@@ -1,13 +1,21 @@
 <p style="line-height: 60px; font-size: 30px;  font-family: times;">
-    Update 7
-    <button type="button" id="btSvc1">Service 1</button>
+    Update 8
+    <span id="read_data"></span>
+    <span>
+        <button type="button" id="readBtn">Read</button>
+    </span>
+    
+    <span>
+        <button type="button" id="writeBtn">Write</button>
+    </span>
 
 <script>
-    var buttonSvc1 = document.getElementById("btSvc1");
+    var readBtn = document.getElementById("readBtn");
+    var writeBtn = document.getElementById("writeBtn");
     
     console.log("Found button.\n");
     
-    buttonSvc1.addEventListener('click', function(event) {
+    readBtn.addEventListener('click', function(event) {
         console.log("Button clicked.\n");
         navigator.bluetooth.requestDevice({
                 acceptAllDevices: true,
@@ -33,6 +41,27 @@
                 console.log('Value B is ' + value.getUint8(2));
                 console.log('Value I is ' + value.getUint8(3));
                 console.log('Value S is ' + value.getUint8(4));
+            })
+            .catch(error => { 
+                console.log(error); 
+            });
+    });
+    
+    writeBtn.addEventListener('click', function(event) {
+        console.log("Button clicked.\n");
+        navigator.bluetooth.requestDevice({
+                acceptAllDevices: true,
+                optionalServices: ['31f45c45-8e0d-4c88-94f7-718a38048536'] 
+            })
+            .then(device => {
+                console.log(device.name);
+                return device.gatt.connect();
+            })
+            .then(server => {
+              return server.getPrimaryService('31f45c45-8e0d-4c88-94f7-718a38048536');
+            })
+            .then(service => {
+              return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360'.toLowerCase());
             })
             .then(characteristic => {
                 var s = new Set([100, 5, 5, 100]);

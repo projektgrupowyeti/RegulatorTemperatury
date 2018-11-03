@@ -28,8 +28,11 @@
             })
             .then(value => {
                 console.log(value);
-                console.log('Value 0 is ' + value.getUint8(0));
-                console.log('Value 1 is ' + value.getUint8(1));
+                console.log('Value R is ' + value.getUint8(0));
+                console.log('Value G is ' + value.getUint8(1));
+                console.log('Value B is ' + value.getUint8(2));
+                console.log('Value I is ' + value.getUint8(3));
+                console.log('Value S is ' + value.getUint8(4));
             })
             .catch(error => { 
                 console.log(error); 

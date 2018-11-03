@@ -1,5 +1,5 @@
 <p style="line-height: 60px; font-size: 30px;  font-family: times;">
-    Update 8
+    Update 9
     <span id="read_data"></span>
     <span>
         <button type="button" id="readBtn">Read</button>
@@ -64,7 +64,7 @@
               return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360'.toLowerCase());
             })
             .then(characteristic => {
-                var s = new Set([100, 5, 5, 100]);
+                var s = new Set([100, 5, 8, 123, 99]);
                 var arr = Uint8Array.from(s);
                 return characteristic.writeValue(arr);
             })

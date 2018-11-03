@@ -15,7 +15,7 @@
             })
             .then(device => {
                 console.log(device.name);
-                device.gatt.connect();
+                return device.gatt.connect();
             })
             .then(server => {
               return server.getPrimaryService('31f45c45-8e0d-4c88-94f7-718a38048536');

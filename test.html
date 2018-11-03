@@ -1,6 +1,6 @@
 <p style="line-height: 60px; font-size: 30px;  font-family: times;">
     Update 3
-    <button type="button" id="btSvc1">Service 1 - 31F45C45-8E0D-4C88-94F7-718A38048536</button>
+    <button type="button" id="btSvc1">Service 1</button>
 
 <script>
     var buttonSvc1 = document.getElementById("btSvc1");
@@ -10,8 +10,9 @@
     buttonSvc1.addEventListener('click', function(event) {
         console.log("Button clicked.\n");
         navigator.bluetooth.requestDevice({ 
+            //'31F45C45-8E0D-4C88-94F7-718A38048536',
             filters: [{
-                services: ['31F45C45-8E0D-4C88-94F7-718A38048536', 'battery_service'] 
+                services: ['battery_service'] 
             }] 
             })
             .then(device => {
@@ -20,11 +21,12 @@
             })
             .then(server => {
                 console.log("Getting Battery Service.\n");
-                return server.getPrimaryService('31F45C45-8E0D-4C88-94F7-718A38048536');
+                return server.getPrimaryService('battery_service');
             })
             .then(service => {
                 // Getting Battery Level Characteristic...
-                return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360');
+            //return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360');
+                return service.getCharacteristic('battery_level');
             })
             .then(characteristic => {
                 // Reading Battery Level...

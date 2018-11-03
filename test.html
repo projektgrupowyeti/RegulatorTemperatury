@@ -11,7 +11,7 @@
         console.log("Button clicked.\n");
         navigator.bluetooth.requestDevice({
             filters: [{
-                services: ['31F45C45-8E0D-4C88-94F7-718A38048536', '0000ff0c-0000-1000-8000-00805f9b34fb'] 
+                services: ['31F45C45-8E0D-4C88-94F7-718A38048536'.toLowerCase(), '0000ff0c-0000-1000-8000-00805f9b34fb'.toLowerCase()] 
             }] 
             })
             .then(device => {

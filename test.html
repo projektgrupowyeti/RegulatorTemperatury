@@ -21,7 +21,7 @@
               return server.getPrimaryService('31f45c45-8e0d-4c88-94f7-718a38048536');
             })
             .then(service => {
-              return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360');
+              return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360'.toLowerCase());
             })
             .then(characteristic => {
               return characteristic.readValue();

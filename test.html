@@ -6,6 +6,10 @@
     <label for="read_data">Current temperature: </label>
     <span id="read_data"></span>
 </div>
+<div class="read_regulator_temperature">
+    <label for="read_regulator">Temperature set for regulator: </label>
+    <span id="read_regulator"></span>
+</div>
 <div>
     <span>
         <button type="button" id="readBtn">Read</button>
@@ -55,6 +59,7 @@
                 console.log('Value B is ' + value.getUint8(2));
                 console.log('Value I is ' + value.getUint8(3));
                 console.log('Value S is ' + value.getUint8(4));
+                document.getElementById("read_regulator").innerHTML = value.getUint8(0);
                 document.getElementById("read_data").innerHTML = value.getUint8(4);
             })
             .catch(error => { 

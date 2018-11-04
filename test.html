@@ -1,13 +1,27 @@
 <p style="line-height: 60px; font-size: 30px;  font-family: times;">
-    Update 10
+<div>
+    <span>Update 10</span>
+</div>   
+<div class="read_temperature">
+    <label for="read_data">Current temperature: </label>
     <span id="read_data"></span>
+</div>
+<div>
     <span>
         <button type="button" id="readBtn">Read</button>
     </span>
-    
+</div>
+<div class="set_temperature">
+        <label for="set_data">Set temperature (in Celcius):</label>
+        <input type="text" id="set_data" name="set_data" required
+               minlength="1" maxlength="3"
+               placeholder="1 to 3 characters long" />
+</div>
+<div>
     <span>
         <button type="button" id="writeBtn">Write</button>
     </span>
+</div>
 
 <script>
     var readBtn = document.getElementById("readBtn");
@@ -41,7 +55,7 @@
                 console.log('Value B is ' + value.getUint8(2));
                 console.log('Value I is ' + value.getUint8(3));
                 console.log('Value S is ' + value.getUint8(4));
-                document.getElementById("read_data").innerHTML = "Current temperature: " + value.getUint8(4);
+                document.getElementById("read_data").innerHTML = value.getUint8(4);
             })
             .catch(error => { 
                 console.log(error); 
@@ -65,7 +79,8 @@
               return service.getCharacteristic('31F45C46-E0D4-C889-4F77-18A380485360'.toLowerCase());
             })
             .then(characteristic => {
-                var s = new Set([0, 0, 0, 0]);
+                var val = document.getElementById("set_data").value;
+                var s = new Set([val, 0, 0, 0, 0]);
                 var arr = Uint8Array.from(s);
                 return characteristic.writeValue(arr);
             })

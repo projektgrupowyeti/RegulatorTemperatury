@@ -80,11 +80,11 @@ Although you can use them, for a more unique website, replace these images with 
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>Regulator temperatury</h1>
-	    		<h2>Z interfejsem Bluetooth Low Energy</h2>
-	    		<p class="text-light">Projekt 5@KSME’2018 - Katedra Systemów Mikroelektronicznych</p>
+				<h2>Z interfejsem Bluetooth Low Energy</h2>
+				<p class="text-light">Projekt 5@KSME’2018 - Katedra Systemów Mikroelektronicznych</p>
 	    	       
 				<div class="row info-panel">
-					<div class="col-md-4" id="read_part">	    
+					<div class="col-md-2" id="read_part">	    
 						<div class="read_temperature">
 							<label for="read_data">Current temperature: </label>
 							<span id="read_data"></span>
@@ -93,16 +93,22 @@ Although you can use them, for a more unique website, replace these images with 
 							<label for="read_regulator">Temperature set for regulator: </label>
 							<span id="read_regulator"></span>
 						</div>
-						<a href="#" id="readBtn" class="btn btn-primary btn-lg">Read</a>
-				</div>
-				<div class="col-md-4" id="write_part">
-					<div class="form-group">
-						<label for="set_data">Set temperature (in Celcius):</label>
-						<input type="text" class="form-control" id="set_data" name="set_data" required
-							   minlength="1" maxlength="3"
-							   placeholder="1 to 3 characters long" />
 					</div>
-					<a href="#" id="writeBtn" class="btn btn-primary btn-lg">Write</a>
+					<div class="col-md-2" id="write_part">
+						<div class="form-group">
+							<label for="set_data">Set temperature (in Celcius):</label>
+							<input type="text" class="form-control" id="set_data" name="set_data" required
+								   minlength="1" maxlength="3"
+								   placeholder="1 to 3 characters long" />
+						</div>
+					</div>
+				</div>
+		    	<div class="row info-panel">
+					<div class="col-md-2" id="read_part_btn">
+						<a href="#" id="readBtn" class="btn btn-primary btn-lg">Read</a>
+					</div>
+					<div class="col-md-2" id="write_part_btn">
+						<a href="#" id="writeBtn" class="btn btn-primary btn-lg">Write</a>
 					</div>
 				</div>
             </div>

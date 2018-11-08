@@ -8,16 +8,25 @@ $('#siteNav').affix({
 $(document).ready(function() {
 	var connectBtn = document.getElementById("connectBtn");
 	var writeBtn = document.getElementById("writeBtn");
+	var intervalBtn = document.getElementById("intervalBtn");
 	
 	var primaryServiceUUID = '31f45c45-8e0d-4c88-94f7-718a38048536'.toLowerCase();
 	var characteristicUUID = '31F45C46-E0D4-C889-4F77-18A380485360'.toLowerCase();
 
 	var bluetoothDevice;
 	var characteristicBLE;
+	var intervalHandle;
 	
 	connectBtn.addEventListener('click', onConnectClick);
 	writeBtn.addEventListener('click', onWriteClick);
-	window.setInterval(readBleCharacteristic, 1000);
+	intervalBtn.addEventListener('click', setIntervalTime);
+	intervalHandle = window.setInterval(readBleCharacteristic, 5000);
+	
+	function setIntervalTime(event) {
+		window.clearInterval(intervalHandle);
+		var intervalTime = document.getElementById("interval_time").value;
+		intervalHandle = window.setInterval(readBleCharacteristic, intervalTime);
+	}
 	
 	function readBleCharacteristic() {
   		if (bluetoothDevice != null && characteristicBLE != null) {

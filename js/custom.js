@@ -95,7 +95,7 @@ $(document).ready(function() {
 		})
 		.catch(error => { 
 			console.log('Error! ' + error); 
-		};
+		});
 	});
 	
 })

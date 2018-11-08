@@ -22,6 +22,7 @@ $(document).ready(function() {
 	intervalBtn.addEventListener('click', setIntervalTime);
 	intervalHandle = window.setInterval(readBleCharacteristic, 5000);
 	
+	// TODO: validate passed time!!!
 	function setIntervalTime(event) {
 		window.clearInterval(intervalHandle);
 		var intervalTime = document.getElementById("interval_time").value;

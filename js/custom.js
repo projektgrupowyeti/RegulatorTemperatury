@@ -17,7 +17,7 @@ $(document).ready(function() {
 	
 	connectBtn.addEventListener('click', onConnectClick);
 	writeBtn.addEventListener('click', onWriteClick);
-	window.setTimeout(readBleCharacteristic, 1000);
+	window.setInterval(readBleCharacteristic, 1000);
 	
 	function readBleCharacteristic() {
   		if (bluetoothDevice != null && characteristicBLE != null) {
@@ -73,7 +73,7 @@ $(document).ready(function() {
 	}
 	
 	function handleTemperatureChanged(event) {
-		time('Temperature changed!');
+		time('Reading BLE characteristics.');
 		var regTemp = event.target.value.getUint8(0);
 		var curTemp = event.target.value.getUint8(4);
 		document.getElementById("read_regulator").innerHTML = regTemp;

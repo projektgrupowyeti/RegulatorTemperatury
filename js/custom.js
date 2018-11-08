@@ -30,15 +30,13 @@ $(document).ready(function() {
 				bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
 				connect();
 			})
-			.catch(error => {
-				log('Error! ' + error);
-		});
+			.catch(error => { console.log('Error! ' + error); });
 	}
 	
 	function connect() {
 		exponentialBackoff(3 /* max retries */, 2 /* seconds delay */,
 			function toTry() {
-			  time('Connecting to BLE Device... ');
+			  console.log('Connecting to BLE Device... ');
 			  return bluetoothDevice.gatt.connect()
 				.then(server => {
 				  	return server.getPrimaryService(primaryServiceUUID);
@@ -51,18 +49,18 @@ $(document).ready(function() {
 						characteristic.addEventListener('characteristicvaluechanged', handleTemperatureChanged);
 				  		return characteristic.readValue();
 					})
-					.catch(error => { console.log(error); });
+					.catch(error => { console.log('Error! ' + error); });
 			},
 			function success() {
-			  log('> Connected.');
+			  console.log('> Connected.');
 			},
 			function fail() {
-			  time('Failed to connect.');
+			  console.log('Failed to connect.');
 			});
 	}
 		
 	function onDisconnected() {
-  		log('> Disconnected');
+  		console.log('> Disconnected');
   		connect();
 	}
 	
@@ -93,9 +91,7 @@ $(document).ready(function() {
 		.then(_ => {
 			console.log('Value is written to device');
 		})
-		.catch(error => { 
-			console.log('Error! ' + error); 
-		});
+		.catch(error => { console.log('Error! ' + error); });
 	}
 	
 })

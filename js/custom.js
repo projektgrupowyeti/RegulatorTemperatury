@@ -46,8 +46,8 @@ $(document).ready(function() {
 					})
 					.then(characteristic => {
 				  		characteristicBLE = characteristic;
-						characteristic.addEventListener('characteristicvaluechanged', handleTemperatureChanged);
-				  		return characteristic.readValue();
+						characteristicBLE.addEventListener('characteristicvaluechanged', handleTemperatureChanged);
+				  		return characteristicBLE.readValue();
 					})
 					.catch(error => { time('Error! ' + error); });
 			},
@@ -87,9 +87,9 @@ $(document).ready(function() {
 		var val = document.getElementById("set_data").value;
 		var s = new Set([val, 0, 0, 0, 0]);
 		var arr = Uint8Array.from(s);
-		characteristic.writeValue(arr)
+		characteristicBLE.writeValue(arr)
 		.then(_ => {
-			time('Value ' + arr + ' is written to device');
+			time('Value ' + arr + ' is written to device characteristic.');
 		})
 		.catch(error => { time('Error! ' + error); });
 	}

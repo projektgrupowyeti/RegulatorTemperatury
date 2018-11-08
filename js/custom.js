@@ -17,6 +17,13 @@ $(document).ready(function() {
 	
 	connectBtn.addEventListener('click', onConnectClick);
 	writeBtn.addEventListener('click', onWriteClick);
+	window.setTimeout(readBleCharacteristic, 1000);
+	
+	function readBleCharacteristic() {
+  		if (bluetoothDevice != null && characteristicBLE != null) {
+			characteristicBLE.readValue();
+		}
+	}
 	
 	function onConnectClick(event) {
 		bluetoothDevice = null;
@@ -52,10 +59,11 @@ $(document).ready(function() {
 					.catch(error => { time('Error! ' + error); });
 			},
 			function success() {
-			  time('> Connected.');
+		  		time('> Connected.');
+				characteristicBLE.readValue();
 			},
 			function fail() {
-			  time('Failed to connect.');
+		  		time('Failed to connect.');
 			});
 	}
 		

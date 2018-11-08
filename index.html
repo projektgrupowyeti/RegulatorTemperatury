@@ -84,7 +84,7 @@ Although you can use them, for a more unique website, replace these images with 
 				<p class="font-weight-bold">Projekt 5@KSME’2018 - Katedra Systemów Mikroelektronicznych</p>
 	    	       
 				<div class="row">
-					<div class="col-md-6" id="read_part">	    
+					<div class="col-md-4" id="read_part">	    
 						<div class="read_temperature">
 							<label class="text-black" for="read_data">Current temperature: </label>
 							<span class="text-black" id="read_data"></span>
@@ -94,7 +94,7 @@ Although you can use them, for a more unique website, replace these images with 
 							<span class="text-black" id="read_regulator"></span>
 						</div>
 					</div>
-					<div class="col-md-6" id="write_part">
+					<div class="col-md-4" id="write_part">
 						<div class="form-group">
 							<label class="text-black" for="set_data">Set temperature (in Celcius):</label>
 							<input type="text" class="form-control" id="set_data" name="set_data" required
@@ -102,13 +102,24 @@ Although you can use them, for a more unique website, replace these images with 
 								   placeholder="1 to 3 characters long" />
 						</div>
 					</div>
+					<div class="col-md-4" id="interval_part">
+						<div class="form-group">
+							<label class="text-black" for="set_data">Set read BLE interval time (in ms):</label>
+						<input type="text" class="form-control" id="interval_time" name="interval_time" required
+								   minlength="4" maxlength="5"
+								   placeholder="Number from 1000 to 99999" />
+						</div>
+					</div>
 				</div>
 		    	<div class="row">
-					<div class="col-md-6" id="read_part_btn">
+					<div class="col-md-4" id="read_part_btn">
 						<button type="button" id="connectBtn" class="btn btn-primary btn-lg">Connect</button>
 					</div>
-					<div class="col-md-6" id="write_part_btn">
+					<div class="col-md-4" id="write_part_btn">
 						<button type="button" id="writeBtn" class="btn btn-primary btn-lg">Write</button>
+					</div>
+					<div class="col-md-4" id="interval_part_btn">
+						<button type="button" id="intervalBtn" class="btn btn-primary btn-lg">Set interval</button>
 					</div>
 				</div>
             </div>
@@ -121,7 +132,7 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                 	<span class="glyphicon glyphicon-user" style="font-size: 60px"></span>
-                    <h2 class="section-heading">Skład zespołu</h2>
+                    <h2 class="section-heading">Team</h2>
                     <p class="text-light">Mariusz, Justyna, Jakub, Sebastian, Rafał</p>
                 </div>
             </div>

@@ -26,7 +26,7 @@ $(document).ready(function() {
 		window.clearInterval(intervalHandle);
 		var intervalTime = document.getElementById("interval_time").value;
 		intervalHandle = window.setInterval(readBleCharacteristic, intervalTime);
-		time('Interval changed to ' + intervalTime ' ms.');
+		time('Interval changed to ' + intervalTime + ' ms.');
 	}
 	
 	function readBleCharacteristic() {

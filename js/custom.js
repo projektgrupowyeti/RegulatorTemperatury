@@ -21,7 +21,7 @@ $(document).ready(function() {
 	function onConnectClick(event) {
 		bluetoothDevice = null;
 		characteristicBLE = null;
-		console.log("Requesting BLE device.\n");
+		time("Requesting BLE device.\n");
 		navigator.bluetooth.requestDevice({
 			filters: [{ services: [primaryServiceUUID]}]
 			})
@@ -30,13 +30,13 @@ $(document).ready(function() {
 				bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
 				connect();
 			})
-			.catch(error => { console.log('Error! ' + error); });
+			.catch(error => { time('Error! ' + error); });
 	}
 	
 	function connect() {
 		exponentialBackoff(3 /* max retries */, 2 /* seconds delay */,
 			function toTry() {
-			  console.log('Connecting to BLE Device... ');
+			  time('Connecting to BLE Device... ');
 			  return bluetoothDevice.gatt.connect()
 				.then(server => {
 				  	return server.getPrimaryService(primaryServiceUUID);
@@ -49,18 +49,18 @@ $(document).ready(function() {
 						characteristic.addEventListener('characteristicvaluechanged', handleTemperatureChanged);
 				  		return characteristic.readValue();
 					})
-					.catch(error => { console.log('Error! ' + error); });
+					.catch(error => { time('Error! ' + error); });
 			},
 			function success() {
-			  console.log('> Connected.');
+			  time('> Connected.');
 			},
 			function fail() {
-			  console.log('Failed to connect.');
+			  time('Failed to connect.');
 			});
 	}
 		
 	function onDisconnected() {
-  		console.log('> Disconnected');
+  		time('> Disconnected');
   		connect();
 	}
 	
@@ -75,12 +75,12 @@ $(document).ready(function() {
 	
 	function onWriteClick(event) {
 		if (bluetoothDevice == null) {
-			console.log("Not connected to any BLE device.\n");
+			time("Not connected to any BLE device.\n");
 			return;
 		}
 		
 		if (characteristicBLE == null) {
-			console.log("BLE device characteristic is not aquired properly.\n");
+			time("BLE device characteristic is not aquired properly.\n");
 			return;
 		}
 		
@@ -89,9 +89,31 @@ $(document).ready(function() {
 		var arr = Uint8Array.from(s);
 		characteristic.writeValue(arr)
 		.then(_ => {
-			console.log('Value is written to device');
+			time('Value ' + arr + ' is written to device');
 		})
-		.catch(error => { console.log('Error! ' + error); });
+		.catch(error => { time('Error! ' + error); });
+	}
+	
+	/* Utils */
+
+	// This function keeps calling "toTry" until promise resolves or has
+	// retried "max" number of times. First retry has a delay of "delay" seconds.
+	// "success" is called upon success.
+	function exponentialBackoff(max, delay, toTry, success, fail) {
+	  toTry().then(result => success(result))
+	  .catch(_ => {
+		if (max === 0) {
+		  return fail();
+		}
+		time('Retrying in ' + delay + 's... (' + max + ' tries left)');
+		setTimeout(function() {
+		  exponentialBackoff(--max, delay * 2, toTry, success, fail);
+		}, delay * 1000);
+	  });
+	}
+
+	function time(text) {
+	  console.log('[' + new Date().toJSON().substr(11, 8) + '] ' + text);
 	}
 	
 })

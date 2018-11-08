@@ -46,8 +46,8 @@ $(document).ready(function() {
 					})
 					.then(characteristic => {
 				  		characteristicBLE = characteristic;
+				  		time('Characteristic acquired, adding event listener.');
 						characteristicBLE.addEventListener('characteristicvaluechanged', handleTemperatureChanged);
-				  		return characteristicBLE.readValue();
 					})
 					.catch(error => { time('Error! ' + error); });
 			},
@@ -65,6 +65,7 @@ $(document).ready(function() {
 	}
 	
 	function handleTemperatureChanged(event) {
+		time('Temperature changed!');
 		var regTemp = event.target.value.getUint8(0);
 		var curTemp = event.target.value.getUint8(4);
 		document.getElementById("read_regulator").innerHTML = regTemp;

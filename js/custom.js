@@ -80,7 +80,7 @@ $(document).ready(function() {
 		
 	function onDisconnected() {
   		time('> Disconnected');
-  		connect();
+  		window.clearInterval(intervalHandle);
 	}
 	
 	function handleTemperatureChanged(event) {

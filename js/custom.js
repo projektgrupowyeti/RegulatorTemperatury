@@ -26,6 +26,12 @@ $(document).ready(function() {
 	function setIntervalTime(event) {
 		window.clearInterval(intervalHandle);
 		var intervalTime = document.getElementById("interval_time").value;
+		
+		if (intervalTime < 1000 || intervalTime > 99999) {
+			time('Interval not changed. Wrong input format.');
+			return;
+		}
+		
 		intervalHandle = window.setInterval(readBleCharacteristic, intervalTime);
 		time('Interval changed to ' + intervalTime + ' ms.');
 	}
@@ -105,6 +111,12 @@ $(document).ready(function() {
 		}
 		
 		var val = document.getElementById("set_data").value;
+		
+		if (val < 0 || val > 999) {
+			time('Wrong input format.');
+			return;
+		}
+		
 		var s = new Set([val, 0, 0, 0, 0]);
 		var arr = Uint8Array.from(s);
 		characteristicBLE.writeValue(arr)

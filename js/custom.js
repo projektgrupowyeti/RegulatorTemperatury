@@ -8,7 +8,9 @@ $('#siteNav').affix({
 $(document).ready(function() {
 	
 	if( !/Android|Chrome|Opera/i.test(navigator.userAgent) ) {
-		alert('Web BLE functinality is currently supported on Android and Desktop devices with:\n - Chrome (min v56) \n - Opera (min v43) \nFull support can be found at: https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API');
+		var msg = 'Web BLE functinality is currently supported on Android and Desktop devices with:\n - Chrome (min v56) \n - Opera (min v43) \nFull support can be found at: https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API';
+		time(msg);
+		alert(msg);
 		return;
 	}
 	
@@ -34,7 +36,8 @@ $(document).ready(function() {
 		var intervalTime = document.getElementById("interval_time").value;
 		
 		if (intervalTime < 1000 || intervalTime > 99999) {
-			time('Interval not changed. Wrong input format.');
+			var msg = 'Interval not changed. Wrong input format.';
+			time(msg);
 			return;
 		}
 		
@@ -63,7 +66,9 @@ $(document).ready(function() {
 			})
 			.catch(error => { time('Error! ' + error); });
 		} catch (e) {
-			time('Error! ' + e + '\nPossible solutions:\nCheck that you are in less than 10m distance to the requested device.\nCheck that your bluetooth is turned on.\nCheck that your Bluetooth version supports BLE communication.\nCheck that you actually HAVE blutooth on your device!');
+			var msg = 'Error! ' + e + '\nPossible solutions:\nCheck that you are in less than 10m distance to the requested device.\nCheck that your bluetooth is turned on.\nCheck that your Bluetooth version supports BLE communication.\nCheck that you actually HAVE blutooth on your device!';
+			time(msg);
+			alert(msg);
 		}
 	}
 	
@@ -83,7 +88,11 @@ $(document).ready(function() {
 				  		time('Characteristic acquired, adding event listener.');
 						characteristicBLE.addEventListener('characteristicvaluechanged', handleTemperatureChanged);
 					})
-					.catch(error => { time('Error! ' + error); });
+					.catch(error => { 
+						var msg = 'Error! ' + error;
+				  		time(msg);
+				  		alert(msg);
+					});
 			},
 			function success() {
 		  		time('> Connected.');
@@ -133,7 +142,11 @@ $(document).ready(function() {
 		.then(_ => {
 			time('Value ' + arr + ' is written to device characteristic.');
 		})
-		.catch(error => { time('Error! ' + error); });
+		.catch(error => { 
+			var msg = 'Error! ' + error;
+			time(msg); 
+			alert(msg);
+		});
 	}
 	
 	/* Utils */

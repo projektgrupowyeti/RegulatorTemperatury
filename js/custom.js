@@ -6,6 +6,12 @@ $('#siteNav').affix({
 })
 
 $(document).ready(function() {
+	
+	if( !/Android|Chrome|Opera/i.test(navigator.userAgent) ) {
+		alert('Web BLE functinality is currently supported on Android and Desktop devices with:\n - Chrome (min v56) \n - Opera (min v43) \nFull support can be found at: https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API');
+		return;
+	}
+	
 	var connectBtn = document.getElementById("connectBtn");
 	var writeBtn = document.getElementById("writeBtn");
 	var intervalBtn = document.getElementById("intervalBtn");

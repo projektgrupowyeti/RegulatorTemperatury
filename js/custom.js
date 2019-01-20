@@ -52,7 +52,8 @@ $(document).ready(function() {
 		bluetoothDevice = null;
 		characteristicBLE = null;
 		time("Requesting BLE device.\n");
-		navigator.bluetooth.requestDevice({
+		try {
+			navigator.bluetooth.requestDevice({
 			filters: [{ services: [primaryServiceUUID]}]
 			})
 			.then(device => {
@@ -61,6 +62,9 @@ $(document).ready(function() {
 				connect();
 			})
 			.catch(error => { time('Error! ' + error); });
+		} catch (e) {
+			time('Error! ' + e + '\nPossible solutions:\nCheck that you are in less than 10m distance to the requested device.\nCheck that your bluetooth is turned on.\nCheck that your Bluetooth version supports BLE communication.\nCheck that you actually HAVE blutooth on your device!');
+		}
 	}
 	
 	function connect() {

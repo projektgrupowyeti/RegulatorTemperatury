@@ -6,7 +6,7 @@ body {
 }
 
 a {
-    color: yellowgreen;
+    color: #004c99;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -28,7 +28,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url('../images/winter_summer.jpg');
+/*  background-image: url('../images/winter_summer.jpg');*/
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -116,7 +116,7 @@ header .header-content .header-content-inner p {
 
 .intro {
 	color: #fff;
-    background-color: yellowgreen;
+    background-color: #004c99;
     padding: 70px 0;
     text-align: center;
 }
@@ -164,7 +164,7 @@ header .header-content .header-content-inner p {
     display: inline-block;
     vertical-align: middle;
 }
-
+/*
 .item-1 {
 	background: url('../images/writing.jpg');
 	}
@@ -176,7 +176,7 @@ header .header-content .header-content-inner p {
 .item-3 {
 	background: url('../images/pencil_sharpener.jpg');
 	}
-		
+		*/
 .item-1,
 .item-2,
 .item-3 {
@@ -190,7 +190,7 @@ header .header-content .header-content-inner p {
 
 .page-footer .contact {
 	padding: 100px 0;
-	background-color: yellowgreen;
+	background-color: #004c99;
 	color: #fff;
 	}
 
@@ -217,13 +217,13 @@ header .header-content .header-content-inner p {
 .navbar-default {
     border-color: rgba(34,34,34,.05);
     background-color: #fff;
-    -webkit-transition: all .35s;
+   /* -webkit-transition: all .35s;
     -moz-transition: all .35s;
-    transition: all .35s;
+    transition: all .35s;*/
 }
 
 .navbar-default .navbar-header .navbar-brand {
-    color: yellowgreen;
+    color: #004c99;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -238,12 +238,12 @@ header .header-content .header-content-inner p {
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: yellowgreen;
+    color: #004c99;
 }
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: yellowgreen!important;
+    color: #004c99!important;
     background-color: transparent;
 }
 
@@ -259,23 +259,23 @@ header .header-content .header-content-inner p {
     }
 
     .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255,255,255,.7);
+        color: #004c99;
         letter-spacing: 0.5em;
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
-        color: #fff;
+        color: #66b2ff;
     }
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: rgba(255,255,255,.7);
+        color: #004c99;
     }
 
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
-        color: #fff;
+        color :#004c99;
     }
 
     .navbar-default.affix {
@@ -286,7 +286,7 @@ header .header-content .header-content-inner p {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         letter-spacing: 0;
-        color: yellowgreen;
+        color: #004c99;
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
@@ -301,7 +301,7 @@ header .header-content .header-content-inner p {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: yellowgreen;
+        color: #004c99;
     }
 }
 
@@ -359,9 +359,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: yellowgreen;
+    border-color: #004c99;
     color: #fff;
-    background-color: yellowgreen;
+    background-color: #004c99;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -373,9 +373,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-    border-color: limegreen;
+    border-color: #004c99;
     color: #fff;
-    background-color: limegreen;
+    background-color: #004c99;;
 }
 
 .btn-primary:active,
@@ -402,12 +402,12 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-    border-color: yellowgreen;
-    background-color: yellowgreen;
+    border-color: #004c99;
+    background-color: #004c99;
 }
 
 .btn-primary .badge {
-    color: yellowgreen;
+    color: #004c99;
     background-color: #fff;
 }
 
@@ -444,9 +444,9 @@ img::-moz-selection {
 }
 
 .text-primary {
-    color: yellowgreen;
+    color: #004c99;
 }
 
 .bg-primary {
-    background-color: yellowgreen;
+    background-color: #004c99;
 }

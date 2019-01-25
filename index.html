@@ -85,7 +85,7 @@ Although you can use them, for a more unique website, replace these images with 
                 <p> Katedra Systemów Mikroelektronicznych</p>
 	    	       
 				<div class="row">
-					<div class="col-md-4" id="read_part">	    
+					<div class="col-md-6" id="read_part">	    
 						<div class="read_temperature">
 							<label class="text-black" for="read_data">Odczytana temperatura: </label>
 							<span class="text-black" id="read_data"></span>
@@ -95,7 +95,7 @@ Although you can use them, for a more unique website, replace these images with 
 							<span class="text-black" id="read_regulator"></span>
 						</div>
 					</div>
-					<div class="col-md-4" id="write_part">
+					<div class="col-md-6" id="write_part">
 						<div class="form-group">
 							<label class="text-black" for="set_data">Ustaw temperaturę (&deg;C):</label>
 							<input type="number" class="form-control" id="set_data" name="set_data" required
@@ -103,25 +103,26 @@ Although you can use them, for a more unique website, replace these images with 
 								   placeholder="od 0 do 999" />
 						</div>
 					</div>
-					<div class="col-md-4" id="interval_part">
+				<!--	<div class="col-md-4" id="interval_part">
 						<div class="form-group">
 							<label class="text-black" for="set_data">Ustaw częstotliwość odczytu (ms): </label>
 						<input type="number" class="form-control" id="interval_time" name="interval_time" required
 								   min="1000" max="99999" pattern="^[0-9]{4,5}"
 								   placeholder="od 1000 do 99999" />
 						</div>
-					</div>
+					</div> -->
 				</div>
 		    	<div class="row">
-					<div class="col-md-4" id="read_part_btn">
+					<div class="col-md-6" id="read_part_btn">
 						<button type="button" id="connectBtn" class="btn btn-primary btn-lg">Połącz</button>
 					</div>
-					<div class="col-md-4" id="write_part_btn">
+					<div class="col-md-6" id="write_part_btn">
 						<button type="button" id="writeBtn" class="btn btn-primary btn-lg">Ustaw</button>
 					</div>
-					<div class="col-md-4" id="interval_part_btn">
+            <!--
+            		<div class="col-md-4" id="interval_part_btn">
 						<button type="button" id="intervalBtn" class="btn btn-primary btn-lg">Ustaw interwał</button>
-					</div>
+					</div> -->
 				</div>
             </div>
         </div>

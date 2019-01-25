@@ -16,7 +16,7 @@ $(document).ready(function() {
 	
 	var connectBtn = document.getElementById("connectBtn");
 	var writeBtn = document.getElementById("writeBtn");
-	var intervalBtn = document.getElementById("intervalBtn");
+	//var intervalBtn = document.getElementById("intervalBtn");
 	
 	var primaryServiceUUID = '31f45c45-8e0d-4c88-94f7-718a38048536'.toLowerCase();
 	var characteristicUUID = '31F45C46-E0D4-C889-4F77-18A380485360'.toLowerCase();
@@ -27,11 +27,11 @@ $(document).ready(function() {
 	
 	connectBtn.addEventListener('click', onConnectClick);
 	writeBtn.addEventListener('click', onWriteClick);
-	intervalBtn.addEventListener('click', setIntervalTime);
+	//intervalBtn.addEventListener('click', setIntervalTime);
 	intervalHandle = window.setInterval(readBleCharacteristic, 5000);
 	
 	// TODO: validate passed time!!!
-	function setIntervalTime(event) {
+/*	function setIntervalTime(event) {
 		window.clearInterval(intervalHandle);
 		var intervalTime = document.getElementById("interval_time").value;
 		
@@ -43,7 +43,7 @@ $(document).ready(function() {
 		
 		intervalHandle = window.setInterval(readBleCharacteristic, intervalTime);
 		time('Interval changed to ' + intervalTime + ' ms.');
-	}
+	}*/
 	
 	function readBleCharacteristic() {
   		if (bluetoothDevice != null && characteristicBLE != null) {

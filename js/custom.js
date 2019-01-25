@@ -28,7 +28,7 @@ $(document).ready(function() {
 	connectBtn.addEventListener('click', onConnectClick);
 	writeBtn.addEventListener('click', onWriteClick);
 	//intervalBtn.addEventListener('click', setIntervalTime);
-	intervalHandle = window.setInterval(readBleCharacteristic, 5000);
+	intervalHandle = window.setInterval(readBleCharacteristic, 1000);
 	
 	// TODO: validate passed time!!!
 /*	function setIntervalTime(event) {

@@ -58,11 +58,9 @@ header .header-content {
 }
 
 
-
 header .header-content .header-content-inner h1 {
     margin-top: 0;
     margin-bottom: 20px;
-    font-size: 50px;
     font-weight: 300;
     color: #222;
     /*filter: drop-shadow(5px 5px 2px #fff);*/
@@ -107,7 +105,7 @@ header .header-content .header-content-inner p {
     }
 
 	header .header-content .header-content-inner h1 {
-    	font-size: 100px;
+    	font-size: 50px;
 		}
 
     header .header-content .header-content-inner p {
